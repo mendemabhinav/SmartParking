@@ -15,21 +15,36 @@
 
     <div class="layout">
         <div class="floors">
-            <h2>Floor 1 (Bikes)</h2>
+            <h2 class="floor-header">Floor 1 (Bikes) <span class="free-count" id="count-f1"></span></h2>
             <div id="f1-grid" class="grid f1-grid"></div>
 
-            <h2>Floor 2 (Cars)</h2>
+            <h2 class="floor-header">Floor 2 (Cars) <span class="free-count" id="count-f2"></span></h2>
             <div id="f2-grid" class="grid f2-grid"></div>
 
-            <h2>Floor 3 (Cars)</h2>
+            <h2 class="floor-header">Floor 3 (Cars) <span class="free-count" id="count-f3"></span></h2>
             <div id="f3-grid" class="grid f3-grid"></div>
         </div>
 
-        <div class="log-container">
-            <h3>Live Activity Log</h3>
-            <ul id="activity-log"></ul>
+        <div class="sidebar">
+            <div class="log-container">
+                <h3>Live Activity Log</h3>
+                <ul id="activity-log"></ul>
+            </div>
+            
+            <div class="legend">
+                <h3>Status Legend</h3>
+                <div class="legend-item"><span class="color-box green"></span> Available (Drive-up)</div>
+                <div class="legend-item"><span class="color-box red"></span> Occupied</div>
+                <div class="legend-item"><span class="color-box yellow"></span> Reserved (Online)</div>
+            </div>
         </div>
     </div>
+
+    <footer class="tech-footer">
+        <h3>How It Works: Greedy Algorithm & Priority Queues</h3>
+        <p><strong>The Greedy Choice:</strong> Instead of searching the entire parking lot for an empty space, this system uses a Data Structure called a Min-Heap (Priority Queue). Available slots are weighted by their distance to the entrance. The algorithm "greedily" pops the lowest-weighted slot off the top of the queue in $O(1)$ time, guaranteeing the closest spot instantly.</p>
+        <p><strong>Reservations & Conflict Resolution:</strong> When a user reserves a spot online, the backend removes that slot from the Min-Heap so the Greedy algorithm cannot assign it to a drive-up customer. A background thread runs a countdown. Once the time expires (or the vehicle leaves), the slot is pushed back into the priority queue, self-healing the grid.</p>
+    </footer>
 
     <script src="/static/script.js"></script>
 </body>
