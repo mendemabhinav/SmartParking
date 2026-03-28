@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Parking System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Underground Smart Parking</h1>
+    
+    <div class="controls">
+        <button onclick="autoPark('bike')">Drive-up Bike (Greedy)</button>
+        <button onclick="autoPark('car')">Drive-up Car (Greedy)</button>
+    </div>
+
+    <div class="layout">
+        <div class="floors">
+            <h2>Floor 1 (Bikes)</h2>
+            <div id="f1-grid" class="grid f1-grid"></div>
+
+            <h2>Floor 2 (Cars)</h2>
+            <div id="f2-grid" class="grid f2-grid"></div>
+
+            <h2>Floor 3 (Cars)</h2>
+            <div id="f3-grid" class="grid f3-grid"></div>
+        </div>
+
+        <div class="log-container">
+            <h3>Live Activity Log</h3>
+            <ul id="activity-log"></ul>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
