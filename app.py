@@ -15,7 +15,7 @@ expirations = {}
 def add_log(message):
     time_now = datetime.datetime.now().strftime("%H:%M:%S")
     activity_log.insert(0, f"[{time_now}] {message}")
-    if len(activity_log) > 15: activity_log.pop()
+    if len(activity_log) > 30: activity_log.pop()
 
 for i in range(1, 49):
     parking_slots[f'F1-{i}'] = 0
